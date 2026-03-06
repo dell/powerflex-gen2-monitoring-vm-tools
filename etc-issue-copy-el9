@@ -1,0 +1,24 @@
+\S
+Kernel \r on an \m
+
+Welcome to the PowerFlex All-in-One Monitoring VM (v4.8)
+
+This VM contains a simple solution for monitoring a PowerFlex
+Gen1 cluster. InfluxDB, Telegraf, and Grafana are preinstalled and
+ready for final configuration. After logging in, you will need to 
+run the "prep_monitoring" script in the root directory. Supply IP an
+IP address for the VM and also thePowerFlex REST Gateway or Ingress 
+IP and credentials. When setup completes, go to the Grafana interface
+at https://[ip-of-vm] and login with the default credentials,
+which are: admin/powerflex. Sample Grafana templates are supplied
+in /var/local/telegraf-powerflex/grafana-dashboards-inxluxdb/
+and they are pre-loaded into this VM.
+
+The primary network interface starts with DHCP by default.
+Log in via the vCenter or other VM console and run the
+setup script to assign a static IP and configure monitoring.
+
+The current hostname is: \n
+The current IP(s): \4
+
+Please log in with: root / M0n1torFlex

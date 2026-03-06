@@ -1,0 +1,4 @@
+flex-cluster1:
+  gateway: __My_Gateway_IP__
+  username: __My_MDM_User__
+  password: __My_MDM_Password__
