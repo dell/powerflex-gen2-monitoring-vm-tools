@@ -77,7 +77,7 @@ rm -f /etc/ssh/ssh_host_*
 > /etc/machine-id
 
 # Clean out development artifacts in /root/
-rm -rf /root/.codeium /root/.windsurf-server /root/CascadeProjects
+rm -rf /root/.codeium /root/.windsurf* /root/CascadeProjects
 
 # Reset all ethernet connections back to DHCP (removes static IP, gateway, DNS)
 for con in $(nmcli -t -f NAME,TYPE connection show | grep ':.*ethernet' | cut -d: -f1); do
