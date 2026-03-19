@@ -77,7 +77,7 @@ rm -f /etc/ssh/ssh_host_*
 > /etc/machine-id
 
 # Clean out development artifacts in /root/
-rm -rf /root/.codeium /root/.windsurf* /root/CascadeProjects
+rm -rf /root/.codeium /root/.windsurf* /root/CascadeProjects /root/.cognition /root/.config/cognition
 
 # Remove systemd core dumps (can be several GB)
 rm -rf /var/lib/systemd/coredump/*
