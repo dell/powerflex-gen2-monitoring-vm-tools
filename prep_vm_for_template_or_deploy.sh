@@ -79,6 +79,9 @@ rm -f /etc/ssh/ssh_host_*
 # Clean out development artifacts in /root/
 rm -rf /root/.codeium /root/.windsurf* /root/CascadeProjects /root/.cognition /root/.config/cognition
 
+# Remove git artifacts (repo data, global config, stored credentials)
+rm -rf /root/tools/.git /root/.gitconfig /root/.git-credentials /root/.config/git
+
 # Remove systemd core dumps (can be several GB)
 rm -rf /var/lib/systemd/coredump/*
 
