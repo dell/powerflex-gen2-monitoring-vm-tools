@@ -79,6 +79,9 @@ rm -f /etc/ssh/ssh_host_*
 # Clean out development artifacts in /root/
 rm -rf /root/.codeium /root/.windsurf* /root/CascadeProjects
 
+# Remove systemd core dumps (can be several GB)
+rm -rf /var/lib/systemd/coredump/*
+
 # Reset all ethernet connections back to DHCP (removes static IP, gateway, DNS)
 for con in $(nmcli -t -f NAME,TYPE connection show | grep ':.*ethernet' | cut -d: -f1); do
     nmcli con mod "$con" ipv4.method auto ipv4.addresses "" ipv4.gateway "" ipv4.dns ""
