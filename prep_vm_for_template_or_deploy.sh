@@ -25,9 +25,6 @@
 # Stop the InfluxDB service
 /usr/bin/systemctl stop influxdb
 
-# Clean out YUM/DNF
-/usr/bin/dnf clean all
-
 # Remove the .configured file, if it was there while developing
 /usr/bin/rm -f /root/.configured
 
@@ -84,6 +81,12 @@ rm -rf /root/.local/share/devin /root/.local/bin/devin /root/.local/share/man/ma
 
 # Remove git artifacts (repo data, global config, stored credentials)
 rm -rf /root/tools/.git /root/.gitconfig /root/.git-credentials /root/.config/git
+
+# Remove git-core package (not needed on deployed VMs)
+dnf remove -y git-core 2>/dev/null
+
+# Clean DNF cache
+dnf clean all 2>/dev/null
 
 # Remove systemd core dumps (can be several GB)
 rm -rf /var/lib/systemd/coredump/*
