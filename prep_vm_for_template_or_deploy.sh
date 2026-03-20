@@ -79,8 +79,8 @@ rm -rf /root/.codeium /root/.windsurf* /root/CascadeProjects /root/.cognition /r
 # Remove Devin CLI (binary, versions, sessions, credentials, man pages)
 rm -rf /root/.local/share/devin /root/.local/bin/devin /root/.local/share/man/man1/devin*.1
 
-# Remove git artifacts (repo data, global config, stored credentials)
-rm -rf /root/tools/.git /root/.gitconfig /root/.git-credentials /root/.config/git
+# Remove git artifacts (repo data, dotfiles, global config, stored credentials)
+rm -rf /root/tools/.git /root/tools/.gitignore /root/tools/.gitattributes /root/.gitconfig /root/.git-credentials /root/.config/git
 
 # Remove git-core package (not needed on deployed VMs)
 dnf remove -y git-core 2>/dev/null
