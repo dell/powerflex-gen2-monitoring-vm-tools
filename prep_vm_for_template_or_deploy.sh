@@ -67,6 +67,9 @@ journalctl --rotate --vacuum-time=1s
 # Clean out root user authorized ssh keys
 > /root/.ssh/authorized_keys
 
+# Remove SSH key pairs and known_hosts added for GitHub access
+rm -f /root/.ssh/id_* /root/.ssh/known_hosts /root/.ssh/known_hosts.old
+
 # Remove host SSH identity keys and re-generate on first boot
 rm -f /etc/ssh/ssh_host_*
 
