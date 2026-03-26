@@ -112,6 +112,9 @@ fstrim -av
 # Remove the influx cli history
 > /root/.influx_history
 
+# Remove wget history
+> /root/.wget-hsts
+
 # Remove the root user’s shell history
 > /root/.bash_history
 unset HISTFILE
