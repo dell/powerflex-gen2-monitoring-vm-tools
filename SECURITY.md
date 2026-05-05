@@ -51,7 +51,7 @@ chmod 600 /var/local/telegraf-powerflex/clusters.yaml
 ```
 
 - Use a dedicated PowerFlex user account with **monitor-level permissions only**
-- Passwords are entered interactively (hidden input) and are never logged
+- Passwords are entered interactively (hidden input) and are not written to logs, but are stored in plain text in `clusters.yaml`
 - The `prep_vm_for_template_or_deploy.sh` script resets `clusters.yaml` to placeholder values when preparing the VM as a template
 
 ## Grafana Admin Password
