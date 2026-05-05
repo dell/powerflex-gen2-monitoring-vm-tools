@@ -30,9 +30,10 @@ In the pre-packed VM, these tools live in the /root/tools directory.
   - Removes SSH keys and machine-specific identifiers
   - Prepares VM for use as a deployment template
 
-- **`restart_monitor_services.sh`** - Service management script that:
-  - Gracefully restarts InfluxDB, Telegraf, and Grafana services
-  - Ensures proper startup order for monitoring stack
+- **`generate_grafana_cert.sh`** - TLS certificate generation script that:
+  - Generates a unique self-signed RSA 4096-bit certificate for Grafana HTTPS
+  - Includes the VM's IP address as a Subject Alternative Name (SAN)
+  - Called automatically by `prep_powerflex_monitoring.sh` during first setup
 
 ### Configuration Files
 

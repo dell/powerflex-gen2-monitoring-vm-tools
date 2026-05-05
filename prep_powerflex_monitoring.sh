@@ -224,10 +224,28 @@ echo -e "****************************************************************\n\n"
 
 touch ~/.configured
 
+# -------------------------------------------------
+#  3c. Generate a unique TLS certificate for Grafana, replacing the demo cert.
+#      Pass the current IP address so it can be included as a SAN.
+# -------------------------------------------------
+
+current_ip=$(hostname -I | awk '{print $1}')
+( "/root/tools/generate_grafana_cert.sh" "$current_ip" )
+
 echo -e "****************************************************************"
 echo -e "***  Please wait. Restarting PowerFlex Monitoring Services.  ***"
 echo -e "****************************************************************\n\n"
-( "/root/tools/restart_monitor_services.sh" )
+
+# Graceful method - Restart the services in order
+/usr/bin/systemctl stop grafana-server
+/usr/bin/systemctl stop telegraf
+/usr/bin/systemctl stop influxdb
+
+sleep 3
+
+/usr/bin/systemctl start influxdb
+/usr/bin/systemctl start telegraf
+/usr/bin/systemctl start grafana-server
 
 # -------------------------------------------------
 #  3b. Set InfluxDB retention policy (6 months, 7-day shards).
